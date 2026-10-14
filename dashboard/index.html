@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Telco churn — risk and capacity | Zaineb Mhiri</title>
+<style>
+:root{--ink:#182d3d;--muted:#617482;--teal:#117d89;--soft:#e6f3f3;--orange:#cf8240;--line:#dae4e7;--paper:#f3f6f7}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);font:15px/1.5 "Segoe UI",Arial,sans-serif;color:var(--ink)}a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
+header{background:#142b3b;color:#fff;padding:27px max(26px,calc((100% - 1360px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:700;letter-spacing:.04em;font-size:17px}.brand small{display:block;color:#b4cbd5;font-size:11px;letter-spacing:.15em;font-weight:400;text-transform:uppercase;margin-top:3px}.pill{border:1px solid #4f6c7e;border-radius:30px;padding:7px 14px;color:#d8e7ed;font-size:12px}
+main{max-width:1412px;margin:auto;padding:26px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:650}h1{font-size:32px;line-height:1.1;margin:7px 0 10px;font-weight:650;letter-spacing:-.7px}p{margin:0}.intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:21px}.intro p{color:var(--muted);max-width:710px}.scope{text-align:right;font-size:12px;color:var(--muted);min-width:180px}.scope strong{display:block;font-size:16px;color:var(--ink)}
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}.overview .card{padding:14px 20px;display:flex;align-items:center;justify-content:space-between}.overview .value{font-size:25px;font-weight:650;letter-spacing:-.5px}.card{background:#fff;border:1px solid var(--line);border-radius:12px}.label{font-size:12px;color:var(--muted)}.note{font-size:11px;color:var(--muted)}
+.policy{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:0 0 14px}.policy h2{font-size:18px;margin:0}select{font:inherit;font-size:13px;border:1px solid #becfd5;border-radius:8px;padding:9px 12px;background:#fff;color:var(--ink);max-width:100%}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:17px}.kpi{padding:17px 20px}.kpi .value{font-size:34px;line-height:1.1;font-weight:650;letter-spacing:-1px;margin:7px 0}.kpi:first-child{background:var(--teal);border-color:var(--teal);color:white}.kpi:first-child .label,.kpi:first-child .note{color:#d5edef}
+.grid{display:grid;grid-template-columns:1.2fr 1fr 1.12fr;gap:16px}.panel{padding:19px 20px}.panel h3{font-size:15px;margin:0 0 3px}.panel .sub{font-size:11px;color:var(--muted);margin-bottom:16px}.capacity-row{margin:12px 0}.row-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}.bar-track{height:12px;background:#edf2f4;border-radius:4px;overflow:hidden}.bar-fill{height:100%;background:var(--teal);border-radius:4px}
+.capacity-row.active .row-label{font-weight:650}.capacity-row:not(.active) .bar-fill{background:#9abfc6}.axis{display:flex;justify-content:space-between;margin-top:10px;font-size:10px;color:var(--muted)}.matrix{display:grid;grid-template-columns:1fr 1fr;gap:8px}.square{padding:13px;border-radius:8px;background:#f0f5f6}.square strong{display:block;font-size:23px}.square span{font-size:11px}.square.tp{background:#e5f3f2;color:#126d75}.square.error{background:#fbf0e5;color:#98622e}.matrix-axes{font-size:10px;color:var(--muted);margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:12px}th{text-align:right;color:var(--muted);font-size:10px;font-weight:600;padding:8px 5px;border-bottom:1px solid var(--line)}td{text-align:right;padding:11px 5px;border-bottom:1px solid #e9eff1}th:first-child,td:first-child{text-align:left}tr.selected{background:#e8f5f3}tr.selected td:first-child{font-weight:650}.table-note{font-size:10px;color:var(--muted);margin-top:12px}
+.takeaway{background:#fff8ee;border:1px solid #ecd6b4;border-radius:10px;padding:16px 20px;margin-top:17px;display:flex;gap:21px;align-items:center}.takeaway .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#956329;white-space:nowrap}.takeaway strong{font-size:14px}.takeaway p{font-size:12px;color:#786a55;margin-top:3px}
+footer{display:flex;justify-content:space-between;gap:20px;margin-top:17px;font-size:11px;color:var(--muted)}footer .links{display:flex;gap:16px;white-space:nowrap}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #83c9d0;outline-offset:3px}
+@media(max-width:950px){.grid{grid-template-columns:1fr 1fr}.grid .panel:last-child{grid-column:1/-1}.kpis{grid-template-columns:repeat(2,1fr)}.intro{align-items:start}.scope{min-width:150px}}
+@media(max-width:600px){header{padding:20px}.pill{display:none}main{padding:20px}.intro,.policy,.takeaway,footer{display:block}.scope{text-align:left;margin-top:14px}.overview{grid-template-columns:1fr}.overview .card{padding:10px 16px}.policy select{margin-top:10px;width:100%}.grid{grid-template-columns:1fr}.grid .panel:last-child{grid-column:auto}.kpis{gap:10px}.kpi{padding:14px}.kpi .value{font-size:29px}h1{font-size:28px}.takeaway .tag{margin-bottom:8px}footer .links{margin-top:10px;flex-wrap:wrap}.panel{padding:17px}}
+</style>
+</head>
+<body>
+<header><div class="brand">TELCO / DECISION LAB<small>Zaineb Mhiri · personal portfolio case study</small></div><span class="pill">Reproducible analysis · observed outcomes</span></header>
+<main>
+<section class="intro"><div><div class="eyebrow">Risk ranking, with operational limits</div><h1>Who should enter a retention study?</h1><p>Explore how contact capacity changes captured churn, false alerts and missed churn.<br>A useful ranking is a starting point for validation — it is not a proven campaign benefit.</p></div><div class="scope">HELD-OUT TEST SAMPLE<strong>1,409 customers · 374 churners</strong>Fixed split · seed 42</div></section>
+<section class="overview" aria-label="Study overview">
+<div class="card"><div><div class="label">Dataset customers</div><div class="note">IBM educational dataset</div></div><div class="value">7,043</div></div>
+<div class="card"><div><div class="label">Observed churn rate</div><div class="note">1,869 / 7,043 customers</div></div><div class="value">26.5%</div></div>
+<div class="card"><div><div class="label">Test ranking quality · ROC-AUC</div><div class="note">Logistic regression selected on training CV</div></div><div class="value">0.843</div></div>
+</section>
+<section aria-labelledby="policy-heading"><div class="policy"><div><h2 id="policy-heading">Contact policy explorer</h2><p class="note">Illustrative capacity or threshold · logistic regression · test outcomes</p></div><label><span class="label">Policy&nbsp;&nbsp;</span><select id="policy" aria-label="Contact policy"><option value="top30" selected>Top 30% · capacity of 423 customers</option><option value="top10">Top 10% · capacity of 141 customers</option><option value="top20">Top 20% · capacity of 282 customers</option><option value="default">Score threshold 0.5</option><option value="illustrative">Score threshold 0.4 · illustrative</option><option value="validation">Threshold fixed on validation · about 30%</option></select></label></div>
+<div class="kpis" aria-live="polite">
+<div class="card kpi"><div class="label">Customers flagged</div><div class="value" id="contacts">423</div><div class="note" id="contactShare">30.0% of test sample</div></div>
+<div class="card kpi"><div class="label">Observed churners captured</div><div class="value" id="tp">246</div><div class="note" id="recall">65.8% of all test churners</div></div>
+<div class="card kpi"><div class="label">Precision among flagged</div><div class="value" id="precision">58.2%</div><div class="note" id="lift">2.19× test churn prevalence</div></div>
+<div class="card kpi"><div class="label">False alerts / missed churn</div><div class="value" id="errors">177 / 128</div><div class="note">FP / FN · costs not provided</div></div>
+</div></section>
+<section class="grid">
+<article class="card panel"><h3>Capacity versus churn captured</h3><p class="sub">Predeclared top-score capacities · same test sample</p><div id="capacity-chart"></div><div class="axis"><span>Share of test churners captured</span><span>100%</span></div></article>
+<article class="card panel"><h3>What the policy gets right and wrong</h3><p class="sub">Observed target versus flag · current selection</p><div class="matrix">
+<div class="square"><span>Correct non-churn · TN</span><strong id="tn">858</strong></div><div class="square error"><span>False alerts · FP</span><strong id="fp">177</strong></div>
+<div class="square error"><span>Missed churn · FN</span><strong id="fn">128</strong></div><div class="square tp"><span>Churn captured · TP</span><strong id="matrix-tp">246</strong></div></div><div class="matrix-axes">TP means churn observed and flagged.<br>It does not mean a customer was retained.</div></article>
+<article class="card panel"><h3>Model comparison</h3><p class="sub">Choice made on training CV before test evaluation</p><table><thead><tr><th scope="col">Model</th><th scope="col">CV AUC</th><th scope="col">Test AUC</th><th scope="col">Test AP</th></tr></thead><tbody id="models"></tbody></table><p class="table-note">AP = average precision. Models are close; the forest has a slightly higher test AP. No general superiority is established.</p></article>
+</section>
+<aside class="takeaway"><div class="tag">Decision gate</div><div><strong>Useful ranking for further study. Operational campaign on hold.</strong><p>Scoring dates, client costs, representativeness and incremental offer effects are unknown. Validate these before deciding whom to contact.</p></div></aside>
+<footer><div>Personal case study · aggregate results only · 11 unknown charges preserved and imputed on train<br>Source and complete metrics are documented in the repository.</div><div class="links"><a href="https://github.com/zinoubjed/telco-churn-portfolio">Project overview</a><a href="https://github.com/zinoubjed/telco-churn-portfolio/blob/main/notebooks/telco_churn.ipynb">Notebook</a><a href="https://github.com/zinoubjed/telco-churn-portfolio/blob/main/reports/business_summary.md">Decision brief</a></div></footer>
+</main>
+<script src="data.js"></script>
+<script>
+const d=window.telcoData;
+const fmt=n=>Number(n).toLocaleString('en-US');
+const pct=n=>(100*n).toFixed(1)+'%';
+const el=id=>document.getElementById(id);
+const policies={};
+d.capacity.forEach(r=>{const k=Math.round(r.capacity*100);policies['top'+k]={contacts:r.contacts,tp:r.churners_captured,fp:r.contacts-r.churners_captured,fn:374-r.churners_captured,tn:1035-(r.contacts-r.churners_captured),precision:r.precision,recall:r.recall}});
+['default','illustrative','validation'].forEach((key,i)=>policies[key]=d.thresholds[i]);
+el('models').innerHTML=d.models.map(r=>'<tr class="'+(r.model==='Logistic regression'?'selected':'')+'"><td>'+({'Logistic regression':'Logistic regression','Random forest':'Random forest','Dummy':'Dummy baseline'}[r.model])+'</td><td>'+r.cv_auc_mean.toFixed(3)+'</td><td>'+r.roc_auc.toFixed(3)+'</td><td>'+r.average_precision.toFixed(3)+'</td></tr>').join('');
+function draw(){const key=el('policy').value,p=policies[key];el('contacts').textContent=fmt(p.contacts);el('contactShare').textContent=pct(p.contacts/1409)+' of test sample';el('tp').textContent=fmt(p.tp);el('recall').textContent=pct(p.recall)+' of all test churners';el('precision').textContent=pct(p.precision);el('lift').textContent=(p.precision/(374/1409)).toFixed(2)+'× test churn prevalence';el('errors').textContent=fmt(p.fp)+' / '+fmt(p.fn);['tn','fp','fn'].forEach(k=>el(k).textContent=fmt(p[k]));el('matrix-tp').textContent=fmt(p.tp);el('capacity-chart').innerHTML=d.capacity.map(r=>'<div class="capacity-row '+(key==='top'+Math.round(r.capacity*100)?'active':'')+'"><div class="row-label"><span>Top '+Math.round(r.capacity*100)+'% · '+r.contacts+' contacts</span><span>'+r.churners_captured+' / 374 · '+pct(r.recall)+'</span></div><div class="bar-track"><div class="bar-fill" style="width:'+r.recall*100+'%"></div></div></div>').join('');}
+el('policy').addEventListener('change',draw);draw();
+</script>
+</body>
+</html>

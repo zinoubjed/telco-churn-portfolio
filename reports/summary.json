@@ -1,0 +1,54 @@
+{
+  "dataset_sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "rows": 7043,
+  "churn_count": 1869,
+  "churn_rate": 0.2653698707936959,
+  "missing_TotalCharges": 11,
+  "split": {
+    "train": 4225,
+    "validation": 1409,
+    "test": 1409
+  },
+  "seed": 42,
+  "selected_by_training_cv": "Logistic regression",
+  "validation_capacity_threshold": 0.3848656768561046,
+  "test_auc_bootstrap_95_interval": [
+    0.820705330829315,
+    0.8642455626038372
+  ],
+  "validation_capacity_metrics": {
+    "accuracy": 0.7920511000709723,
+    "roc_auc": 0.836129840605544,
+    "average_precision": 0.641983388900215,
+    "brier": 0.13804839890426013,
+    "precision": 0.5957446808510638,
+    "recall": 0.6737967914438503,
+    "f1": 0.6323713927227101,
+    "contacts": 423,
+    "tn": 864,
+    "fp": 171,
+    "fn": 122,
+    "tp": 252
+  },
+  "test_capacity_metrics": {
+    "accuracy": 0.7771469127040455,
+    "roc_auc": 0.8432612570719987,
+    "average_precision": 0.6343805574134186,
+    "brier": 0.13763523720797544,
+    "precision": 0.5663716814159292,
+    "recall": 0.6844919786096256,
+    "f1": 0.6198547215496368,
+    "contacts": 452,
+    "tn": 839,
+    "fp": 196,
+    "fn": 118,
+    "tp": 256
+  },
+  "versions": {
+    "python": "3.10.21",
+    "numpy": "2.2.5",
+    "pandas": "2.2.3",
+    "sklearn": "1.5.2",
+    "matplotlib": "3.10.0"
+  }
+}
