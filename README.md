@@ -2,13 +2,17 @@
 
 **Zaineb Mhiri · personal portfolio case study**
 
-[Français](README.fr.md) · [Executed notebook (French)](notebooks/telco_churn.ipynb) · [Decision brief](reports/business_summary.md) · [Methodology](docs/methodology.md)
+[Français](README.fr.md) · [Executed notebook (French)](notebooks/telco_churn.ipynb) · [Client-facing case study](reports/client_case_study.md) · [Decision brief](reports/business_summary.md) · [Methodology](docs/methodology.md)
 
 How can a retention team examine which customers to prioritize when contact capacity is limited? This study combines data-quality checks, reproducible models and an interactive dashboard to make the trade-off between captured churn, false alerts and missed churn visible.
 
 **Main finding:** risk ranking is informative on this educational dataset. A real campaign requires a defined client decision, scoring dates, error costs and evidence that an offer creates incremental retention.
 
 ![Telco dashboard — top 30 percent capacity on the held-out test sample](figures/dashboard_capture.jpg)
+
+## Portfolio presentation
+
+**For prospective clients:** [Read the professional case study](reports/client_case_study.md) to review the simulated business request, concrete analytical work, observed results, decision constraints and linked deliverables. This is a public-data demonstration, not a claim of a completed client contract or deployed retention campaign.
 
 ## What is demonstrated
 
