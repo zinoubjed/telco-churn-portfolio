@@ -34,6 +34,10 @@ La logistique est sélectionnée selon l'AUC moyenne en validation croisée sur 
 
 TP signifie client au churn observé correctement signalé, pas client sauvé. Aucun ROI n'est démontré. Une population à haut risque peut être moins réceptive à une offre qu'une population à risque modéré.
 
+## Présentation pour les prospects
+
+[**Consulter l’étude de cas professionnelle**](reports/client_case_study.md) : besoin métier simulé, travaux réalisés, résultats mesurés, recommandations et limites. Ce projet sur données publiques IBM n’est pas une mission effectuée pour un client réel et ne démontre ni déploiement ni ROI de campagne.
+
 ## Consulter et reproduire
 
 Pour consulter les résultats sur GitHub, ouvrir le notebook et la synthèse. Le [dashboard interactif](https://zinoubjed.github.io/telco-churn-portfolio/dashboard/) est prévu pour une consultation directe sur GitHub Pages. Il peut aussi être utilisé hors ligne : télécharger le dépôt et ouvrir [dashboard/index.html](dashboard/index.html) dans un navigateur.
