@@ -2,6 +2,10 @@
 
 **Zaineb Mhiri · personal portfolio case study**
 
+[View dashboard](https://zinoubjed.github.io/telco-churn-portfolio/dashboard/) · [Read decision brief](reports/business_summary.md) · [Inspect code](src/)
+
+**Status: Completed — portfolio deliverables.** Learning and independent explanation of the work remain separate from publication; operational deployment is not validated.
+
 [Français](README.fr.md) · [Executed notebook (French)](notebooks/telco_churn.ipynb) · [Client-facing case study](reports/client_case_study.md) · [Decision brief](reports/business_summary.md) · [Methodology](docs/methodology.md)
 
 How can a retention team examine which customers to prioritize when contact capacity is limited? This study combines data-quality checks, reproducible models and an interactive dashboard to make the trade-off between captured churn, false alerts and missed churn visible.
