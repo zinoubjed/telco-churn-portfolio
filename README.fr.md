@@ -2,6 +2,10 @@
 
 **Zaineb Mhiri · étude personnelle de portfolio**
 
+[Voir le dashboard](https://zinoubjed.github.io/telco-churn-portfolio/dashboard/) · [Lire la synthèse](reports/business_summary.md) · [Examiner le code](src/)
+
+**Statut : Completed — livrables portfolio terminés.** La consolidation des compétences et la capacité à expliquer le travail restent distinctes de la publication ; le déploiement opérationnel n'est pas validé.
+
 [English](README.md) · [Notebook exécuté](notebooks/telco_churn.ipynb) · [Synthèse métier](reports/business_summary.md) · [Méthode](docs/methodology.md)
 
 Comment examiner une priorisation de contacts lorsque la capacité de fidélisation est limitée ? Le projet relie contrôle des données, modèles simples et volumes d'erreurs. Il montre aussi pourquoi des données propres et un score informatif ne suffisent pas à décider d'une campagne.
