@@ -2,6 +2,8 @@
 
 **Nature du projet :** simulation de mission sur le jeu de données public IBM Telco Customer Churn. Ce n'est pas une mission effectuée pour un client réel, ni un déploiement en entreprise.
 
+[Voir le dashboard](https://zinoubjed.github.io/telco-churn-portfolio/dashboard/) · [Lire la synthèse](business_summary.md) · [Examiner le code](../src/)
+
 ## Problème métier simulé
 Une équipe fidélisation doit prioriser les clients à examiner avec une capacité de contact limitée. Objectif : mesurer si un classement du risque peut aider à comparer des politiques de contact. Budget, décideur, coût des erreurs et efficacité des offres restent inconnus.
 
@@ -36,4 +38,14 @@ Ces résultats mesurent un classement du risque, **pas** des clients effectiveme
 ## Portée et traçabilité
 Ce cas montre une démarche, des calculs et des livrables inspectables. Il ne constitue pas une preuve de mission client passée, de ROI réalisé, de déploiement ni de certification de compétence. Le projet a bénéficié d'une assistance technique et rédactionnelle ; les résultats critiques doivent rester vérifiables. Toute utilisation avec des données client exige autorisation, cadrage et validation spécifiques.
 
-**Statut : WORKING — P1.**
+**Statut : Completed — livrables portfolio terminés.** La phase d'apprentissage WORKING — P1 et la validation de la maîtrise personnelle sont distinctes du statut de livraison du portfolio ; le déploiement opérationnel reste non validé.
+
+## Exemple de première mission à cadrer
+
+Ce projet illustre le format d'une mission limitée de diagnostic qualité, nettoyage documenté et EDA sur un fichier tabulaire. Le périmètre est confirmé après examen d'un échantillon autorisé et des règles métier.
+
+- **Entrées nécessaires :** fichier autorisé, dictionnaire des colonnes, usage attendu et règles de correction à confirmer.
+- **Livrables à convenir :** fichier nettoyé, notebook reproductible et rapport des contrôles, corrections et anomalies non résolues.
+- **Critères d'acceptation :** structure convenue, contrôles documentés, traçabilité des changements et validation des corrections nécessitant un arbitrage métier.
+
+La réalisation autonome et les délais sont à confirmer sur le périmètre demandé. Ce cas ne constitue pas une offre de déploiement de modèle ni une promesse de rétention ou de ROI.
